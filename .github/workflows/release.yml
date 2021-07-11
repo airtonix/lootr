@@ -13,11 +13,11 @@ jobs:
       packages: write
     steps:
       - uses: actions/checkout@v2
-      - uses: volta-cli/action@v1
-      # Setup .npmrc file to publish to GitHub Packages
       - uses: actions/setup-node@v2
         with:
+          # install version of node
           version: 14.17.3
+          # Setup .npmrc file to publish to GitHub Packages
           registry-url: 'https://npm.pkg.github.com'
       - name: Cache pnpm modules
         uses: actions/cache@v2
