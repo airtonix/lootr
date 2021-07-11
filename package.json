@@ -19,7 +19,7 @@
     "url": "https://github.com/airtonix/lootr/issues"
   },
   "scripts": {
-    "typecheck": "tsc",
+    "typecheck": "tsc --noEmit",
     "lint": "eslint . --ext ts",
     "test": "jest",
     "test:watch": "pnpm test -- --watchAll"
