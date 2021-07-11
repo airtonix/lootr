@@ -1,0 +1,22 @@
+name: PR Checks
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v2
+      # Setup .npmrc file to publish to GitHub Packages
+      - uses: volta-cli/action@v1
+      - run: npm install -g pnpm@5.18.9
+      - run: pnpm install
+      - run: pnpm typecheck
+      - run: pnpm lint
+      - run: pnpm test

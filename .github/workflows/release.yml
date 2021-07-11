@@ -3,14 +3,14 @@ name: Release Package
 on:
   push:
     branches:
-      -  master
+      - master
 
 jobs:
   build:
-    runs-on: ubuntu-latest 
-    permissions: 
+    runs-on: ubuntu-latest
+    permissions:
       contents: read
-      packages: write 
+      packages: write
     steps:
       - uses: actions/checkout@v2
       # Setup .npmrc file to publish to GitHub Packages
