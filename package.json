@@ -18,14 +18,14 @@
   "bugs": {
     "url": "https://github.com/airtonix/lootr/issues"
   },
-  "volta": {
-    "node": "14.17.3"
-  },
   "scripts": {
     "typecheck": "tsc --noEmit",
     "lint": "eslint . --ext ts",
     "test": "jest",
-    "test:watch": "pnpm test -- --watchAll"
+    "test:watch": "pnpm test -- --watchAll",
+    "actions": "npm-run-all actions:*",
+    "actions:mergechecks": "act -j mergechecks",
+    "actions:release": "act -j release"
   },
   "devDependencies": {
     "@types/jest": "^26.0.24",
