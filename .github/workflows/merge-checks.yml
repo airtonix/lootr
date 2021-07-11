@@ -25,8 +25,7 @@ jobs:
       - uses: pnpm/action-setup@v2.0.1
         with:
           version: 5.18.9
-          run_install: true
-
+      - run: pnpm install
       - run: pnpm typecheck
       - run: pnpm lint
       - run: pnpm test
