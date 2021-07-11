@@ -11,8 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: volta-cli/action@v1
-      - run: npm install -g pnpm@5.18.9
       - name: Cache Modules
         id: cache-modules
         uses: actions/cache@v2
@@ -21,6 +19,8 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-node-
+      - uses: volta-cli/action@v1
+      - run: npm install -g pnpm@5.18.9
       - run: pnpm install --store-dir=~/.pnpmstore
       - run: pnpm typecheck
       - run: pnpm lint
